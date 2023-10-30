@@ -1,13 +1,9 @@
-//
-// Created by n1nd0r on 30.10.23.
-//
-
+#include "data.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
-
 
 void console_clear ()
 {
@@ -17,7 +13,6 @@ void console_clear ()
     system("clear");
     #endif
 }
-
 
 #ifndef QUEST_GAME_GAME_H
 #define QUEST_GAME_GAME_H
