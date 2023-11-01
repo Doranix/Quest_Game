@@ -23,18 +23,25 @@ private:
     static string line;
 
 public:
-    static void scene (const string& text) {
+    static void scene (const string& text, const string& person = "<NAME>") {
         console_clear();
 
-        cout << line << endl;
-        cout << text << endl;
-        cout << line << endl;
+        if (person == "<NAME>") {
+            cout << line << endl;
+            cout << "\x1b[32m" << text << "\x1b[0m" << endl;
+            cout << line << endl;
+        } else {
+            cout << line << endl;
+            cout << "{ \x1b[36m" << person << "\x1b[0m }" << " >> \x1b[32m" << text << "\x1b[0m" << endl;
+            cout << line << endl;
+        }
 
         cin.get();
     }
 
     static int prompt (const string& question, const vector<string>& answers) {
         string answer;
+
         auto size = (short) answers.size();
 
         cout << endl << line << endl;
@@ -58,6 +65,17 @@ public:
             cout << endl << "Такого варіанту немає !" << endl;
         }
 
+    }
+
+    static string input (const string& question) {
+        console_clear();
+
+        string input;
+
+        cout << question << "\n>> ";
+        getline(cin, input);
+
+        return input;
     }
 };
 
